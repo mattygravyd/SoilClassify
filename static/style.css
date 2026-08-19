@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
 }
 
-/* Sidebar */
+/* sidebar */
 .sidebar {
   width: 320px;
   background-color: var(--panel);
@@ -79,7 +79,7 @@ body {
   border-radius: 2px;
 }
 
-/* Main Panel */
+/* main panel */
 .main-panel {
   flex: 1;
   padding: 2rem 2.5rem;
@@ -137,7 +137,7 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* Metrics */
+/* metrics */
 .metrics-row {
   display: flex;
   gap: 1rem;
@@ -167,7 +167,7 @@ body {
   margin-top: 4px;
 }
 
-/* Core Sample & Chart */
+/* core sample and chart */
 .visualization-row {
   display: flex;
   gap: 1.5rem;

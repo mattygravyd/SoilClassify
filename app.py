@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Color Palette Constants
+# colors
 BG = "#12161B"
 PANEL = "#1B2229"
 PANEL_LINE = "#2A323B"
@@ -21,7 +21,7 @@ def classify_soil(p200, p4, ll, pl, cu=None, cc=None):
     pi = ll - pl
     a_line = 0.73 * (ll - 20)
 
-    # Fine grained soils
+    # fine grained soils
     if p200 >= 50:
         if ll < 50:
             if pi > a_line and pi > 7:
@@ -36,7 +36,7 @@ def classify_soil(p200, p4, ll, pl, cu=None, cc=None):
             else:
                 return "MH", "Elastic Silt", pi
 
-    # Coarse grained soils
+    # coarse grained soils
     retained_4 = 100 - p4
     coarse_fraction = 100 - p200
     is_gravel = retained_4 > (coarse_fraction / 2)

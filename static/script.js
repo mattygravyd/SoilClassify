@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ll = parseFloat(llInput.value);
     const pl = parseFloat(plInput.value);
 
-    // Toggle Gradation inputs visibility
+    // toggle gradation inputs visibility
     if (p200 < 12) {
       gradationGroup.style.display = 'block';
     } else {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.error(err));
   }
 
-  // Attach event listeners for real-time reactivity
+  // attach event listeners for real-time reactivity
   [p200Input, p4Input, llInput, plInput, cuInput, ccInput].forEach(elem => {
     elem.addEventListener('input', fetchClassification);
   });
