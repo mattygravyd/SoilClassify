@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoilClassify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar / Lab Data Sheet -->
+    <aside class="sidebar">
+      <section class="section-group">
+        <h3>Sample Sieve Data</h3>
+        <label>Passing #200 Sieve (%): <span id="p200-val">25.0</span></label>
+        <input type="range" id="p200" min="0" max="100" step="0.5" value="25.0">
+
+        <label>Passing #4 Sieve (%): <span id="p4-val">75.0</span></label>
+        <input type="range" id="p4" min="0" max="100" step="0.5" value="75.0">
+      </section>
+
+      <section class="section-group">
+        <h3>Atterberg Limits</h3>
+        <label>Liquid Limit (LL)</label>
+        <input type="number" id="ll" value="35" min="0">
+
+        <label>Plastic Limit (PL)</label>
+        <input type="number" id="pl" value="20" min="0">
+      </section>
+
+      <section class="section-group" id="gradation-group">
+        <h3>Gradation Coefficients</h3>
+        <label>Coefficient of Uniformity (Cu)</label>
+        <input type="number" id="cu" value="5.0" step="0.1" min="0.1">
+
+        <label>Coefficient of Curvature (Cc)</label>
+        <input type="number" id="cc" value="1.5" step="0.1" min="0.1">
+      </section>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main-panel">
+      <div class="sheet-title">SoilClassify</div>
+      <div class="sheet-sub">Boring Log &nbsp;·&nbsp; USCS Classification Engine &nbsp;·&nbsp; ASTM D2487</div>
+
+      <!-- Stamp Card -->
+      <div class="stamp">
+        <div class="stamp-symbol" id="out-symbol">--</div>
+        <div>
+          <div class="stamp-tag">Field Classification</div>
+          <div class="stamp-name" id="out-name">Processing...</div>
+        </div>
+      </div>
+
+      <!-- Metrics Row -->
+      <div class="metrics-row">
+        <div class="metric">
+          <div class="metric-label">USCS Symbol</div>
+          <div class="metric-value" id="metric-symbol">--</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Plasticity Index (PI)</div>
+          <div class="metric-value" id="metric-pi">--</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Soil Group</div>
+          <div class="metric-value" id="metric-group">--</div>
+        </div>
+      </div>
+
+      <!-- Core Sample & Plasticity Chart -->
+      <div class="visualization-row">
+        <div class="core-col">
+          <div class="core-wrap">
+            <div class="core-ruler"><span>0'</span><span>—</span><span>—</span><span>5'</span></div>
+            <div class="core-strip">
+              <div id="core-fill" style="flex:1;"></div>
+            </div>
+          </div>
+          <div class="core-caption">Core Sample<br>Gravel / Sand / Fines</div>
+        </div>
+
+        <div class="chart-col">
+          <div class="chart-card">
+            <div class="chart-label">Plasticity Chart</div>
+            <img id="chart-img" src="" alt="Plasticity Chart">
+          </div>
+        </div>
+      </div>
+
+      <div class="app-footer">
+        Created by Matthew Bowles &nbsp;·&nbsp; 
+        <a href="mailto:matthewjosbowles@gmail.com">matthewjosbowles@gmail.com</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
