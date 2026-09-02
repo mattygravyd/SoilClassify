@@ -8,14 +8,15 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# colors
-BG = "#12161B"
-PANEL = "#1B2229"
-PANEL_LINE = "#2A323B"
-INK = "#EDE7D8"
-INK_MUTED = "#8B95A1"
-AMBER = "#D9A441"
-CLAY = "#8B4A3B"
+# colors — mirrors the design tokens in static/style.css so the
+# server-rendered chart sits visually flush inside its card.
+BG = "#171B1F"        # --surface
+PANEL = "#171B1F"      # --surface
+PANEL_LINE = "#262C32"  # --border
+INK = "#E9E4D8"        # --ink
+INK_MUTED = "#6C737B"  # --ink-muted
+AMBER = "#E0A254"      # --accent-strong
+CLAY = "#A65A42"       # --clay
 
 def classify_soil(p200, p4, ll, pl, cu=None, cc=None):
     pi = ll - pl
@@ -118,13 +119,16 @@ def index():
 
 @app.route("/classify", methods=["POST"])
 def classify():
-    data = request.json
-    p200 = float(data.get("p200", 25.0))
-    p4 = float(data.get("p4", 75.0))
-    ll = float(data.get("ll", 35))
-    pl = float(data.get("pl", 20))
-    cu = float(data.get("cu")) if data.get("cu") is not None else None
-    cc = float(data.get("cc")) if data.get("cc") is not None else None
+    data = request.json or {}
+    try:
+        p200 = float(data.get("p200", 25.0))
+        p4 = float(data.get("p4", 75.0))
+        ll = float(data.get("ll", 35))
+        pl = float(data.get("pl", 20))
+        cu = float(data.get("cu")) if data.get("cu") is not None else None
+        cc = float(data.get("cc")) if data.get("cc") is not None else None
+    except (TypeError, ValueError):
+        return jsonify({"error": "Sample values must be numbers."}), 400
 
     symbol, name, pi = classify_soil(p200, p4, ll, pl, cu, cc)
     group = "Coarse-grained" if p200 < 50 else "Fine-grained"
