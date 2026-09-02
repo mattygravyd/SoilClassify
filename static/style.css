@@ -1,11 +1,6 @@
-/* =========================================================================
-   SoilClassify — Design System
-   A geotechnical lab tool. The palette and type read as a site-investigation
-   report: graph-paper backgrounds, ink-stamp result, core-sample strata.
-   ========================================================================= */
 
 :root {
-  /* ---- Color: surfaces ---- */
+  /* surface color */
   --bg: #0F1214;
   --surface: #171B1F;
   --surface-raised: #1D2227;
@@ -13,30 +8,30 @@
   --border: #262C32;
   --border-strong: #383F47;
 
-  /* ---- Color: text ---- */
+  /* text color */
   --ink: #E9E4D8;
   --ink-secondary: #A9AFB6;
   --ink-muted: #6C737B;
 
-  /* ---- Color: accent ---- */
+  /* accent color */
   --accent: #C68A3D;
   --accent-strong: #E0A254;
   --accent-ink: #1A1207;
   --accent-wash: rgba(198, 138, 61, 0.12);
 
-  /* ---- Color: soil groups (used consistently: core strip, legend, chart) --- */
+  /* soil group colors */
   --gravel: #948B7A;
   --sand: #C9A227;
   --silt: #9C8B6E;
   --clay: #A65A42;
 
-  /* ---- Color: state ---- */
+  /* state colors */
   --warning: #D2A24C;
   --warning-wash: rgba(210, 162, 76, 0.1);
   --danger: #C1615C;
   --danger-wash: rgba(193, 97, 92, 0.1);
 
-  /* ---- Type ---- */
+  /* type */
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "IBM Plex Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
@@ -50,7 +45,7 @@
   --text-2xl: 2.125rem;   /* 34px */
   --text-3xl: 3.25rem;    /* 52px */
 
-  /* ---- Spacing (4px base grid) ---- */
+  /* spacing (4px base grid) */
   --sp-1: 0.25rem;
   --sp-2: 0.5rem;
   --sp-3: 0.75rem;
@@ -60,27 +55,22 @@
   --sp-7: 3rem;
   --sp-8: 4rem;
 
-  /* ---- Radius ---- */
+  /* radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  /* ---- Elevation (used sparingly — overlays only) ---- */
+  /* elevation */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
 
-  /* ---- Motion ---- */
+  /* motion */
   --ease: cubic-bezier(0.2, 0, 0, 1);
   --dur-fast: 120ms;
   --dur-base: 200ms;
 
   --header-h: 64px;
 }
-
-/* =========================================================================
-   Reset & base
-   ========================================================================= */
-
 *,
 *::before,
 *::after {
@@ -119,7 +109,7 @@ img {
   max-width: 100%;
 }
 
-/* Visible, deliberate focus states everywhere — no outline: none */
+
 :focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
@@ -146,7 +136,7 @@ img {
 }
 
 /* =========================================================================
-   Header
+   header
    ========================================================================= */
 
 .topbar {
@@ -205,7 +195,7 @@ img {
 }
 
 /* =========================================================================
-   Layout
+   layout
    ========================================================================= */
 
 .layout {
@@ -248,7 +238,7 @@ img {
 }
 
 /* =========================================================================
-   Field groups (form)
+   field groups (form)
    ========================================================================= */
 
 .field-group {
@@ -328,7 +318,7 @@ img {
   margin-top: 1px;
 }
 
-/* Range slider */
+/* range slider */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -380,7 +370,7 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 0 0 1px var(--accent);
 }
 
-/* Number / text inputs */
+/* number text inputs */
 .input-wrap {
   position: relative;
 }
@@ -423,7 +413,7 @@ input[type="range"]::-moz-range-thumb {
   pointer-events: none;
 }
 
-/* Derived (read-only) value row, e.g. computed PI inside the form */
+/* derived (read-only) value row */
 .field-derived {
   margin-top: var(--sp-4);
   padding-top: var(--sp-4);
@@ -445,7 +435,7 @@ input[type="range"]::-moz-range-thumb {
   font-variant-numeric: tabular-nums;
 }
 
-/* Conditional gradation group — animated show/hide */
+/* conditional gradation group animated show/hide */
 #gradation-group {
   display: grid;
   grid-template-rows: 1fr;
@@ -470,7 +460,7 @@ input[type="range"]::-moz-range-thumb {
   visibility: hidden;
 }
 
-/* Reset button */
+/* reset button */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -515,7 +505,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* =========================================================================
-   Results: hero classification card
+   results: classification
    ========================================================================= */
 
 .result-card {
@@ -634,7 +624,7 @@ input[type="range"]::-moz-range-thumb {
   opacity: 0.45;
 }
 
-/* Error state within the result card */
+/* error state within the result card */
 .result-error {
   display: none;
   align-items: flex-start;
@@ -664,7 +654,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* =========================================================================
-   Stat grid
+   stat grid
    ========================================================================= */
 
 .stat-grid {
@@ -701,7 +691,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* =========================================================================
-   Visualization row: core sample + plasticity chart
+   visualization row: core sample + plasticity chart
    ========================================================================= */
 
 .viz-row {
@@ -818,7 +808,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* =========================================================================
-   Footer
+   footer
    ========================================================================= */
 
 .app-footer {
